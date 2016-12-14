@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Pepite</string>
+    <string name="auth0_client_id">cDvBBojJ6OqC0REk2Vv2xDKMwfq3uamU</string>
+    <string name="auth0_domain">zerguei.eu.auth0.com</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
