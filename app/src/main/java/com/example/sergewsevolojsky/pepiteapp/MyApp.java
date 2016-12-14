@@ -2,9 +2,12 @@ package com.example.sergewsevolojsky.pepiteapp;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
+import android.view.View;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.example.sergewsevolojsky.pepiteapp.activity.LoginActivity;
 
 /**
  * Created by sergewsevolojsky on 13/12/2016.
@@ -49,4 +52,5 @@ public class MyApp extends Application {
     public void setToken(String token) {
         this.token = token;
     }
+
 }
