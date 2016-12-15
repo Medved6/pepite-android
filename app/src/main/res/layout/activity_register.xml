@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Se connecter"
+            android:text="S'inscrire"
             android:textColor="#fff"
             android:textSize="30sp"
             android:layout_marginBottom="40dp"/>
@@ -54,10 +54,10 @@
             android:hint="Mot de passe"
             style="@style/editText"/>
         <Button
-            android:id="@+id/loginButton"
+            android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="Se connecter"
+            android:text="S'inscrire"
             android:layout_marginTop="36dp"
             style="@style/redButton"/>
 

@@ -17,6 +17,9 @@ public class LaunchActivity extends AppCompatActivity {
     @BindView(R.id.goToLoginButton)
     Button login_button;
 
+    @BindView(R.id.goToRegisterButton)
+    Button register_button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +47,12 @@ public class LaunchActivity extends AppCompatActivity {
                 goToLogin();
             }
         });
+        register_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToRegister();
+            }
+        });
     }
 
 
@@ -51,6 +60,10 @@ public class LaunchActivity extends AppCompatActivity {
 
     public void goToLogin(){
         Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+    public void goToRegister(){
+        Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
 

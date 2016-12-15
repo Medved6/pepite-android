@@ -30,6 +30,9 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.loginButton)
     Button login_button;
 
+    @BindView(R.id.goToRegisterButton)
+    Button go_register_button;
+
     @BindView(R.id.emailEditText)
     EditText email_edit_text;
 
@@ -46,11 +49,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         ButterKnife.bind(this);
-
         bindEvent();
-
     }
 
 
@@ -60,32 +60,56 @@ public class LoginActivity extends AppCompatActivity {
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                onLoginClick();
+            }
+        });
 
-                // Get Inputs form values
-                String email_val = email_edit_text.getText().toString();
-                String password_val = password_edit_text.getText().toString();
 
-                Log.e("LOGIN","Requete Connection");
-
-                UserNetworkManager.registerUsers(email_val, password_val, new UserNetworkManager.UserLoginResultListener() {
-                    @Override
-                    public void onRegisterUsers(User[] user) {
-
-                        Toast.makeText(LoginActivity.this, "ok", Toast.LENGTH_SHORT).show();
-
-                        connect();
-                    }
-
-                    @Override
-                    public void onFail() {
-                        Toast.makeText(LoginActivity.this, "no", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
+        go_register_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onRegisterClick();
             }
         });
 
     }
+
+
+
+
+
+    private void onLoginClick() {
+
+        // Get Inputs form values
+        String email_val = email_edit_text.getText().toString();
+        String password_val = password_edit_text.getText().toString();
+
+        Log.e("LOGIN","Requete Connection");
+
+        UserNetworkManager.registerUsers(email_val, password_val, new UserNetworkManager.UserLoginResultListener() {
+            @Override
+            public void onRegisterUsers(User[] user) {
+                Toast.makeText(LoginActivity.this, "ok", Toast.LENGTH_SHORT).show();
+                connect();
+            }
+
+            @Override
+            public void onFail() {
+                Toast.makeText(LoginActivity.this, "no", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+
+
+    private void onRegisterClick() {
+
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+
+    }
+
 
 
 
