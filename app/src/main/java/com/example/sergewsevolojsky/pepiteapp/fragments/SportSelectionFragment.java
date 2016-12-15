@@ -3,8 +3,6 @@ package com.example.sergewsevolojsky.pepiteapp.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -16,23 +14,15 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.sergewsevolojsky.pepiteapp.MyApp;
 import com.example.sergewsevolojsky.pepiteapp.R;
 import com.example.sergewsevolojsky.pepiteapp.activity.MainActivity;
 import com.example.sergewsevolojsky.pepiteapp.adapter.SportsAdpater;
 import com.example.sergewsevolojsky.pepiteapp.model.Sport;
 import com.example.sergewsevolojsky.pepiteapp.network.SportNetworkManager;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Hashtable;
 import java.util.List;
 

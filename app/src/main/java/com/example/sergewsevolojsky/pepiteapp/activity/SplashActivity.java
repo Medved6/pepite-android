@@ -20,8 +20,8 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 Log.i("tag", "This'll run 300 milliseconds later");
 
-                //Intent intent = new Intent(this, LaunchActivity.class);
-                Intent intent = new Intent(SplashActivity.this, LaunchActivity.class);
+                //Intent intent = new Intent(SplashActivity.this, LaunchActivity.class);
+                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

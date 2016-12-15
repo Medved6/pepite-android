@@ -24,7 +24,7 @@ public class bottomBarActivity extends AppCompatActivity {
         mybottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
-                if (tabId == R.id.tab_favorites) {
+                if (tabId == R.id.tab_home) {
                     // The tab with id R.id.tab_favorites was selected,
                     // change your content accordingly.
                 }

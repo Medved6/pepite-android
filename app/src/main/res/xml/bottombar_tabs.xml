@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tabs>
     <tab
-        id="@+id/tab_favorites"
-        title="Home"
-        barColorWhenSelected="#5D4037"/>
+        id="@+id/tab_home"
+        icon="@drawable/home"
+        title="Home"/>
     <tab
-        id="@+id/tab_nearby"
-        title="plus"
-        barColorWhenSelected="#4FF3BE"/>
+        id="@+id/tab_add"
+        icon="@drawable/add"
+        title="Créer"/>
     <tab
-        id="@+id/tab_friends"
-        title="Rechercher"
-        barColorWhenSelected="#FEEB4E"/>
+        id="@+id/tab_search"
+        icon="@drawable/search"
+        title="Rechercher"/>
 </tabs>

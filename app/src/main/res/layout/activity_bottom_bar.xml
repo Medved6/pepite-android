@@ -5,7 +5,8 @@
     android:id="@+id/activity_bottom_bar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sergewsevolojsky.pepiteapp.activity.bottomBarActivity">
+    tools:context="com.example.sergewsevolojsky.pepiteapp.activity.bottomBarActivity"
+    android:background="#fff">
 
 
     <com.roughike.bottombar.BottomBar
@@ -13,7 +14,10 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        app:bb_tabXmlResource="@xml/bottombar_tabs" />
+        app:bb_tabXmlResource="@xml/bottombar_tabs"
+        app:bb_inActiveTabColor="#797979"
+        app:bb_activeTabColor="@color/colorMain"
+        app:bb_titleTextAppearance="@style/bottomBarText"/>
 
 
 </RelativeLayout>
