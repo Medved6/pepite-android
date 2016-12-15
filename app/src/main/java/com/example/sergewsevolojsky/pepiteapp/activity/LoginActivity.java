@@ -65,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                 String email_val = email_edit_text.getText().toString();
                 String password_val = password_edit_text.getText().toString();
 
+                Log.e("LOGIN","Requete Connection");
 
                 UserNetworkManager.registerUsers(email_val, password_val, new UserNetworkManager.UserLoginResultListener() {
                     @Override

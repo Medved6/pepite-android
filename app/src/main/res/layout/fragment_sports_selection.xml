@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:id="@+id/main_toto"
-    android:clickable="true">
+    android:clickable="true"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
 
     <LinearLayout
         android:id="@+id/top_block"
@@ -12,7 +14,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:background="#a0a0a0"
+        android:background="@color/colorMain"
         android:gravity="center">
 
         <EditText
@@ -22,7 +24,9 @@
             android:hint="Rechercher sport ..."
             android:paddingLeft="22dp"
             android:background="@drawable/searchshape"
-            android:alpha="0.3" />
+            android:alpha="0.3"
+            android:nextFocusUp="@id/sport_edit_text"
+            android:nextFocusLeft="@id/sport_edit_text"/>
 
     </LinearLayout>
 
@@ -34,6 +38,24 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/top_block" >
     </ListView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bordertop"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/activity_vertical_margin">
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:text="Done"
+            style="@style/redButton"/>
+
+    </LinearLayout>
 
 
 </RelativeLayout>

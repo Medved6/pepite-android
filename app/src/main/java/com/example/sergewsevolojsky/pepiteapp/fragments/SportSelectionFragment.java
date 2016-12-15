@@ -25,6 +25,7 @@ import com.example.sergewsevolojsky.pepiteapp.network.SportNetworkManager;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Hashtable;
 import java.util.List;
 
 import butterknife.BindView;
@@ -72,13 +73,23 @@ public class SportSelectionFragment extends Fragment {
         listView.setDivider(null);
 
 
-
+        final Hashtable test = new Hashtable();
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Log.i("CLICK", "Position=" + i);
+
+                if(!test.contains(i)){
+                    test.put(i, allSports.get(i).getName().toString());
+                } else {
+                    test.remove(i);
+                }
+
+                Log.e("Test", test.toString());
+
+
             }
         });
 
