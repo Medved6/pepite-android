@@ -17,13 +17,15 @@ public class User implements Parcelable{
     private int id;
     private String email;
     private String bio;
+    private String token;
 
-    public User(String firstname, String lastname, int id, String email, String bio) {
+    public User(String firstname, String lastname, int id, String email, String bio, String token) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.id = id;
         this.email = email;
         this.bio = bio;
+        this.token = token;
     }
 
 
@@ -38,6 +40,7 @@ public class User implements Parcelable{
         id = in.readInt();
         email = in.readString();
         bio = in.readString();
+        token = in.readString();
     }
 
 
@@ -81,6 +84,14 @@ public class User implements Parcelable{
         this.bio = bio;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -94,6 +105,7 @@ public class User implements Parcelable{
         parcel.writeInt(id);
         parcel.writeString(email);
         parcel.writeString(bio);
+        parcel.writeString(token);
     }
 
 

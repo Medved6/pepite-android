@@ -19,8 +19,7 @@ public class AfterRegisterActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_after_register);
 
-
-
-
     }
+
+
 }

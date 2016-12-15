@@ -44,17 +44,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bordertop"
-        android:gravity="center"
         android:layout_alignParentBottom="true"
-        android:padding="@dimen/activity_vertical_margin">
+        android:padding="@dimen/activity_vertical_margin"
+        android:gravity="center">
 
         <Button
-            android:id="@+id/loginButton"
+            android:id="@+id/validateSelection"
             android:layout_width="160dp"
             android:layout_height="40dp"
             android:text="Done"
-            style="@style/redButton"/>
+            style="@style/redButton"
+            android:layout_gravity="center"/>
 
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/skipSelection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Passer"
+            android:layout_marginBottom="12dp"
+            style="@style/transparenButton"
+            android:textColor="#757575"
+            android:textSize="15sp"
+            />
     </LinearLayout>
 
 

@@ -12,14 +12,9 @@ public class UrlBuilder {
         return String.format("%s/sessions",BASE_URL);
     }
 
-    public static String getUsersUrl(){
+    public static String getUserRegistersUrl(){
         return String.format("%s/users",BASE_URL);
     }
-
-    public static String getUsersById(){
-        return String.format("%s/users/1",BASE_URL);
-    }
-
 
     public static String getSportsUrl() {
         return String.format("%s/sports",BASE_URL);

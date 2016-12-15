@@ -27,12 +27,7 @@
             android:layout_marginBottom="30dp"
             android:id="@+id/imageView" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bienvenue sur Pépite."
-            android:textSize="30sp"
-            android:textColor="#fff"/>
+
 
 
         <TextView

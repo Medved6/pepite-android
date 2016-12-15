@@ -27,19 +27,19 @@ public class UserNetworkManager {
 
 
 
-    // USER REGISTER
+    // USER LOGIN
 
 
     // LISTENER
     public interface UserLoginResultListener {
-        void onRegisterUsers(User[] users);
+        void onLoginUsers(User users);
 
         void onFail();
     }
 
 
     //METHOD
-    public static void registerUsers(String email, String password, final UserLoginResultListener listener) {
+    public static void loginUsers(String email, String password, final UserLoginResultListener listener) {
 
 
         Map<String,String> params = new HashMap<String, String>();
@@ -49,9 +49,9 @@ public class UserNetworkManager {
 
 
         String url = UrlBuilder.getUserLoginUrl();
-        JacksonRequest<UserResult> request = new JacksonRequest<>(Request.Method.POST, url, params, new JacksonRequestListener<UserResult>() {
+        JacksonRequest<User> request = new JacksonRequest<>(Request.Method.POST, url, params, new JacksonRequestListener<User>() {
             @Override
-            public void onResponse(UserResult response, int statusCode, VolleyError error) {
+            public void onResponse(User response, int statusCode, VolleyError error) {
 
                 if (error != null) {
                     if (listener != null) {
@@ -61,14 +61,70 @@ public class UserNetworkManager {
                 } else {
                     if (response != null) {
                         if (listener != null)
-                            listener.onRegisterUsers(response.getUsers());
+                            listener.onLoginUsers(response);
                     }
                 }
             }
 
             @Override
             public JavaType getReturnType() {
-                return SimpleType.construct(UserResult.class);
+                return SimpleType.construct(User.class);
+            }
+
+        });
+
+        MyApp.getInstance().getRequestQueue().add(request);
+    }
+
+
+
+
+
+
+    // USER LOGIN
+
+
+    // LISTENER
+    public interface UserRegisterResultListener {
+        void onRegisterUsers(User users);
+
+        void onFail();
+    }
+
+
+    //METHOD
+    public static void registerUsers(String firstname, String lastname, String email, String password, final UserRegisterResultListener listener) {
+
+
+        Map<String,String> params = new HashMap<String, String>();
+        params.put("Content-Type","application/form-data");
+        params.put("email",firstname);
+        params.put("password",lastname);
+        params.put("email",email);
+        params.put("password",password);
+
+
+        String url = UrlBuilder.getUserRegistersUrl();
+        JacksonRequest<User> request = new JacksonRequest<>(Request.Method.POST, url, params, new JacksonRequestListener<User>() {
+            @Override
+            public void onResponse(User response, int statusCode, VolleyError error) {
+
+                if (error != null) {
+                    if (listener != null) {
+                        VolleyLog.e("Error: ", error.getMessage());
+                        listener.onFail();
+                    }
+                } else {
+                    if (response != null) {
+                        if (listener != null)
+                            listener.onRegisterUsers(response);
+                    }
+                }
+            }
+
+            @Override
+            public JavaType getReturnType() {
+                return SimpleType.construct(User.class);
             }
 
         });

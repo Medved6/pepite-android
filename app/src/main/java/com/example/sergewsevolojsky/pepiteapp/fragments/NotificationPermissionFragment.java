@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.example.sergewsevolojsky.pepiteapp.MyApp;
 import com.example.sergewsevolojsky.pepiteapp.R;
+import com.urbanairship.UAirship;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,6 +40,8 @@ public class NotificationPermissionFragment extends Fragment {
 
         ButterKnife.bind(this, rootView);
 
+
+
         return rootView;
     }
 
@@ -53,6 +56,11 @@ public class NotificationPermissionFragment extends Fragment {
         permission_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                // Enable user notifications
+                MyApp.getInstance().getAirship().getPushManager().setUserNotificationsEnabled(true);
+
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 

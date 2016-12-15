@@ -1,5 +1,6 @@
 package com.example.sergewsevolojsky.pepiteapp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -12,15 +13,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.sergewsevolojsky.pepiteapp.MyApp;
 import com.example.sergewsevolojsky.pepiteapp.R;
+import com.example.sergewsevolojsky.pepiteapp.activity.MainActivity;
 import com.example.sergewsevolojsky.pepiteapp.adapter.SportsAdpater;
 import com.example.sergewsevolojsky.pepiteapp.model.Sport;
 import com.example.sergewsevolojsky.pepiteapp.network.SportNetworkManager;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -41,10 +49,19 @@ public class SportSelectionFragment extends Fragment {
     private ListView listView;
     private List<Sport> allSports;
     private SportsAdpater sportAdapter;
+    final Hashtable selectedSports = new Hashtable();
+    List<Integer> sport_ids = new ArrayList<Integer>();
+
 
 
     @BindView(R.id.sport_edit_text)
     EditText searchBar;
+
+    @BindView(R.id.validateSelection)
+    Button validateSelection;
+
+    @BindView(R.id.skipSelection)
+    Button skipSelection;
 
     public static SportSelectionFragment newInstance() {
 
@@ -73,23 +90,25 @@ public class SportSelectionFragment extends Fragment {
         listView.setDivider(null);
 
 
-        final Hashtable test = new Hashtable();
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.i("CLICK", "Position=" + i);
 
-                if(!test.contains(i)){
-                    test.put(i, allSports.get(i).getName().toString());
+                CheckBox checkBox = (CheckBox) view.findViewById(R.id.list_check);
+
+                if( !checkBox.isChecked() )
+                    checkBox.setChecked(true);
+                else
+                    checkBox.setChecked(false);
+
+
+                if(!sport_ids.contains(allSports.get(i).getId())){
+                    sport_ids.add(allSports.get(i).getId());
                 } else {
-                    test.remove(i);
+                    sport_ids.remove(allSports.get(i).getId());
                 }
-
-                Log.e("Test", test.toString());
-
-
             }
         });
 
@@ -128,8 +147,56 @@ public class SportSelectionFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        bindEvents();
+    }
 
-        bindSearch();
+
+
+    // BIND ALL FRAGMENT EVENTS
+    public void bindEvents(){
+        onSearchKeyup();
+        onValidateClick();
+        onSkipClick();
+    }
+
+
+
+
+
+    public void onValidateClick(){
+
+        validateSelection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Log.e("VALIDATE", selectedSports.getClass().toString());
+
+                selectedSports.put("sport_id", sport_ids);
+
+                String jsonString = new Gson().toJson(selectedSports);
+
+
+
+                Log.e("VALIDATE 2", jsonString);
+
+                //goHome();
+
+
+            }
+        });
+
+    }
+
+
+
+
+    public void onSkipClick(){
+        skipSelection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goHome();
+            }
+        });
     }
 
 
@@ -139,8 +206,8 @@ public class SportSelectionFragment extends Fragment {
 
 
 
-
-    public void bindSearch() {
+    // SEARCH FUNCTION
+    public void onSearchKeyup() {
 
 
         searchBar.addTextChangedListener(new TextWatcher() {
@@ -163,12 +230,9 @@ public class SportSelectionFragment extends Fragment {
                     Log.e("sport", val.substring(0,s.length()) );
                     Log.e("search", s.toString().toLowerCase() );
 
-                    if(val.contains(s)) {
+                    if(val.contains(s.toString().toLowerCase())) {
                         newResult.add(allSports.get(i));
                     }
-
-
-
 
                 }
 
@@ -191,5 +255,12 @@ public class SportSelectionFragment extends Fragment {
 
     }
 
+
+
+
+    public void goHome(){
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
+    }
 
 }

@@ -13,44 +13,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Sport implements Parcelable {
 
     private String name;
+    private Integer id;
 
-    public Sport(String name) {
+    public Sport(String name, Integer id) {
         this.name = name;
+        this.id = id;
     }
 
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Sport() {
+    public Sport(){
 
     }
 
-    public Sport(Parcel in){
-        readFromParcel(in);
-    }
-
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(name);
-    }
-
-    private void readFromParcel(Parcel in) {
+    protected Sport(Parcel in) {
         name = in.readString();
     }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-
 
     public static final Creator<Sport> CREATOR = new Creator<Sport>() {
         @Override
@@ -63,4 +39,30 @@ public class Sport implements Parcelable {
             return new Sport[size];
         }
     };
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+    }
 }

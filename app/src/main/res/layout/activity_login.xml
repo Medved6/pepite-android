@@ -27,6 +27,14 @@
             android:textSize="30sp"
             android:layout_marginBottom="40dp"/>
 
+        <TextView
+            android:id="@+id/loginError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="12sp"
+            android:textColor="#f00"/>
+
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
@@ -34,13 +42,16 @@
             android:hint="Email"
             android:text="raroul@gmail.com"
             android:layout_marginBottom="15dp"
-            style="@style/editText"/>
+            android:maxLines="1"
+            style="@style/editText"
+            />
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mot de passe"
             android:text="lolilol"
+            android:maxLines="1"
             style="@style/editText"/>
         <Button
             android:id="@+id/loginButton"
