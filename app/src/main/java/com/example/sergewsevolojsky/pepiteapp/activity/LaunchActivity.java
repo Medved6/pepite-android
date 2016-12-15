@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.sergewsevolojsky.pepiteapp.MyApp;
 import com.example.sergewsevolojsky.pepiteapp.R;
 
 import butterknife.BindView;

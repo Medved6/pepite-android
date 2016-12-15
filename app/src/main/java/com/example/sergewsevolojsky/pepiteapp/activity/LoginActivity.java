@@ -90,6 +90,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onRegisterUsers(User[] user) {
                 Toast.makeText(LoginActivity.this, "ok", Toast.LENGTH_SHORT).show();
+
                 connect();
             }
 
@@ -129,8 +130,9 @@ public class LoginActivity extends AppCompatActivity {
 
     public void connect() {
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, AfterRegisterActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
     }
 

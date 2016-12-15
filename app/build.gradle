@@ -36,9 +36,6 @@ dependencies {
     })
 
     // Lock for auth0
-    
-
-    
 
 
     compile 'com.android.support:appcompat-v7:25.1.0'

@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sergewsevolojsky.pepiteapp.fragments.GoToSportFragment"
+    android:background="@color/colorMain">
+
+
+    <LinearLayout
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Avant de commencer…"
+            style="@style/titleTextView"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sélectionnez les sports qui vous intéresse le plus"
+            style="@style/introTextView"/>
+
+        <Button
+            android:id="@+id/go_to_sport"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Choisir mes sports"
+            style="@style/redButton"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
