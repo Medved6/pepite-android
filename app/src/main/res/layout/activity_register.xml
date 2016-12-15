@@ -27,6 +27,14 @@
             android:textSize="30sp"
             android:layout_marginBottom="20dp"/>
 
+        <TextView
+            android:id="@+id/loginError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="12sp"
+            android:textColor="#E5143A"/>
+
         <EditText
             android:id="@+id/firstnameEditText"
             android:layout_width="match_parent"

@@ -171,7 +171,7 @@ public class SportSelectionFragment extends Fragment {
 
                 Log.e("VALIDATE", selectedSports.getClass().toString());
 
-                selectedSports.put("sport_id", sport_ids);
+                selectedSports.put("sport_ids", sport_ids);
 
                 String jsonString = new Gson().toJson(selectedSports);
 

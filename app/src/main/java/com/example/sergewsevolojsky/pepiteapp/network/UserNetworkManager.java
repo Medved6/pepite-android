@@ -98,8 +98,8 @@ public class UserNetworkManager {
 
         Map<String,String> params = new HashMap<String, String>();
         params.put("Content-Type","application/form-data");
-        params.put("email",firstname);
-        params.put("password",lastname);
+        params.put("firstname",firstname);
+        params.put("lastname",lastname);
         params.put("email",email);
         params.put("password",password);
 

@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textSize="12sp"
-            android:textColor="#f00"/>
+            android:textColor="#E5143A"/>
 
         <EditText
             android:id="@+id/emailEditText"
