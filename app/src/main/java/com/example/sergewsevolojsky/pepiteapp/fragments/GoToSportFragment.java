@@ -46,6 +46,7 @@ public class GoToSportFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), SportSelectionActivity.class);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
 

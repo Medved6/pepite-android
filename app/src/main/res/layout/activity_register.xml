@@ -16,7 +16,8 @@
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="match_parent"

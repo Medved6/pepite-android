@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,6 +11,8 @@
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         >
 
         <TextView
@@ -22,7 +24,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="En activant les notifications, vous serez informée lorsqu’il y a un évènement à côté de vous."/>
+            android:text="En activant les notifications, vous serez informée lorsqu’il y a un évènement à côté de vous."
+            style="@style/introTextView"/>
 
 
         <LinearLayout
@@ -30,17 +33,21 @@
             android:layout_height="wrap_content">
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:text="Ignorer"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                style="@style/whiteBorderButton"/>
             <Button
                 android:id="@+id/activate"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_weight="1"
-                android:text="Activer"/>
+                android:layout_marginLeft="10dp"
+                android:text="Activer"
+                style="@style/redButton"/>
         </LinearLayout>
 
     </LinearLayout>
 
-</FrameLayout>
+</RelativeLayout>
