@@ -38,16 +38,19 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Continuer avec facebook"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="40dp"
+            style="@style/redButton"/>
 
         <Button
             android:id="@+id/goToRegisterButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Créer un compte"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="18dp"
+
+            style="@style/whiteBorderButton"/>
 
     </LinearLayout>
 
@@ -62,10 +65,11 @@
         <Button
             android:id="@+id/goToLoginButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="26dp"
             android:text="Se connecter"
             android:layout_gravity="center"
-            android:textColor="#fff"/>
+            android:textColor="#fff"
+            style="@style/transparenButton"/>
 
     </LinearLayout>
 

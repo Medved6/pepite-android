@@ -71,6 +71,8 @@ public class LoginActivity extends AppCompatActivity {
                     public void onRegisterUsers(User[] user) {
 
                         Toast.makeText(LoginActivity.this, "ok", Toast.LENGTH_SHORT).show();
+
+                        connect();
                     }
 
                     @Override
