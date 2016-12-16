@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,7 +25,7 @@ import com.example.sergewsevolojsky.pepiteapp.fragments.GoToSportFragment;
 import com.example.sergewsevolojsky.pepiteapp.fragments.HomeCommingEventsFragment;
 import com.example.sergewsevolojsky.pepiteapp.fragments.HomeOwnEventsFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends bottomBarActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -60,15 +61,15 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        StartBottomBar();
+    }
 
+
+    @Override
+    protected void StartBottomBar(){
+
+        super.StartBottomBar();
+        Log.e("TEST","EXTEND ACTION");
     }
 
 

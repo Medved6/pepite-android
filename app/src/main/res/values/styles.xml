@@ -9,7 +9,7 @@
     </style>
 
 
-    <style name="AppTheme.NoActionBar">
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -73,6 +73,17 @@
         <item name="android:textSize">12sp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+
+    <style name="editTextBlue">
+        <item name="android:background">@drawable/inputblue</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textColorHint">#b8c4ff</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:layout_marginBottom">18dp</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

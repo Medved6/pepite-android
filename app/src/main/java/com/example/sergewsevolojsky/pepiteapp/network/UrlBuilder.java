@@ -20,5 +20,6 @@ public class UrlBuilder {
         return String.format("%s/sports",BASE_URL);
     }
 
+    public static String getEventsUrl() { return String.format("%s/events",BASE_URL); }
 
 }

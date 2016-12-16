@@ -1,5 +1,6 @@
 package com.example.sergewsevolojsky.pepiteapp.activity;
 
+import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +28,17 @@ public class bottomBarActivity extends AppCompatActivity {
                 if (tabId == R.id.tab_home) {
                     // The tab with id R.id.tab_favorites was selected,
                     // change your content accordingly.
+                } else if (tabId == R.id.tab_add) {
+
+                    Log.e("TEST","CLICK");
+
+                    Intent intent = new Intent(getApplication().getApplicationContext(), CreateEventActivity.class);
+                    startActivity(intent);
+
+                } else if (tabId == R.id.tab_search) {
+                    Intent intent = new Intent(getApplication().getApplicationContext(), SearchActivity.class);
+                    startActivity(intent);
+
                 }
             }
         });
