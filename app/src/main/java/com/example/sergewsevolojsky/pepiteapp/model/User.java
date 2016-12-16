@@ -18,21 +18,21 @@ public class User implements Parcelable{
     private String email;
     private String bio;
     private String token;
-    private SubscrivesEventsResult event_subscriptions;
 
-    public User(String firstname, String lastname, int id, String email, String bio, String token, SubscrivesEventsResult event_subscriptions) {
+
+    public User(String firstname, String lastname, int id, String email, String bio, String token) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.id = id;
         this.email = email;
         this.bio = bio;
         this.token = token;
-        this.event_subscriptions = event_subscriptions;
     }
 
     public User(){
 
     }
+
 
     protected User(Parcel in) {
         firstname = in.readString();
@@ -103,13 +103,6 @@ public class User implements Parcelable{
         this.token = token;
     }
 
-    public SubscrivesEventsResult getEvent_subscriptions() {
-        return event_subscriptions;
-    }
-
-    public void setEvent_subscriptions(SubscrivesEventsResult event_subscriptions) {
-        this.event_subscriptions = event_subscriptions;
-    }
 
     @Override
     public int describeContents() {
