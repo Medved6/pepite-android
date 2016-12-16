@@ -4,10 +4,12 @@
     android:layout_height="match_parent"
     tools:context="com.example.sergewsevolojsky.pepiteapp.fragments.HomeOwnEventsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <fragment
+        android:id="@+id/empty_home"
+        android:name="com.example.sergewsevolojsky.pepiteapp.fragments.EmptyHomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:layout="@layout/fragment_empty_home" />
 
 </FrameLayout>

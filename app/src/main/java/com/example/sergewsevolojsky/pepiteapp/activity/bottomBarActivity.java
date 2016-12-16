@@ -20,8 +20,6 @@ public class bottomBarActivity extends AppCompatActivity {
 
         mybottomBar = (BottomBar) findViewById(R.id.bottomBar);
 
-        Log.e("Bottom Bar", mybottomBar.toString());
-
         mybottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
@@ -29,8 +27,6 @@ public class bottomBarActivity extends AppCompatActivity {
                     // The tab with id R.id.tab_favorites was selected,
                     // change your content accordingly.
                 } else if (tabId == R.id.tab_add) {
-
-                    Log.e("TEST","CLICK");
 
                     Intent intent = new Intent(getApplication().getApplicationContext(), CreateEventActivity.class);
                     startActivity(intent);

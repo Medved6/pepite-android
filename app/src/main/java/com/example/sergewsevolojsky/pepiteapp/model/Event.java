@@ -32,6 +32,10 @@ public class Event implements Parcelable{
         this.users_needed = users_needed;
     }
 
+    public Event() {
+
+    }
+
     protected Event(Parcel in) {
         author_id = in.readInt();
         author = in.readParcelable(User.class.getClassLoader());

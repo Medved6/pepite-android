@@ -14,8 +14,6 @@ public class AfterRegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.e("TEST","REGISTER ACTIVITY");
-
 
         setContentView(R.layout.activity_after_register);
 

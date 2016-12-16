@@ -1,5 +1,7 @@
 package com.example.sergewsevolojsky.pepiteapp.activity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,6 +22,7 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.example.sergewsevolojsky.pepiteapp.MyApp;
 import com.example.sergewsevolojsky.pepiteapp.R;
 import com.example.sergewsevolojsky.pepiteapp.fragments.GoToSportFragment;
 import com.example.sergewsevolojsky.pepiteapp.fragments.HomeCommingEventsFragment;
@@ -69,7 +72,6 @@ public class MainActivity extends bottomBarActivity {
     protected void StartBottomBar(){
 
         super.StartBottomBar();
-        Log.e("TEST","EXTEND ACTION");
     }
 
 
@@ -88,7 +90,18 @@ public class MainActivity extends bottomBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_sports_select) {
+
+            Intent intent = new Intent(this, SportSelectionActivity.class);
+            startActivity(intent);
+
+            return true;
+        } else if(id == R.id.action_logout) {
+
+            MyApp.getInstance().unstore();
+            Intent intent = new Intent(this, LaunchActivity.class);
+            startActivity(intent);
+
             return true;
         }
 

@@ -112,7 +112,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onRegisterUsers(User user) {
                 Toast.makeText(RegisterActivity.this, "ok", Toast.LENGTH_SHORT).show();
 
-                MyApp.getInstance().setToken(user.getToken());
+                MyApp.getInstance().store(user.getToken(), user.getId());
                 login_error.setText("");
                 register();
             }

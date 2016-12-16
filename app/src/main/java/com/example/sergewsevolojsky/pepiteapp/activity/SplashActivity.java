@@ -1,6 +1,7 @@
 package com.example.sergewsevolojsky.pepiteapp.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,10 +19,18 @@ public class SplashActivity extends AppCompatActivity {
         new android.os.Handler().postDelayed(
         new Runnable() {
             public void run() {
-                Log.i("tag", "This'll run 300 milliseconds later");
 
-                //Intent intent = new Intent(SplashActivity.this, LaunchActivity.class);
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                SharedPreferences userDetails = getApplicationContext().getSharedPreferences("userdetails", MODE_PRIVATE);
+                String user_token = userDetails.getString("token", "");
+
+                Intent intent;
+
+                if(user_token.isEmpty()){
+                    intent = new Intent(SplashActivity.this, LaunchActivity.class);
+                } else {
+                    intent = new Intent(SplashActivity.this, MainActivity.class);
+                }
+
                 startActivity(intent);
                 finish();
             }

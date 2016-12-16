@@ -3,8 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.sergewsevolojsky.pepiteapp.activity.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_sports_select"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Configurer mes sports"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="Déconnexion"
         app:showAsAction="never" />
 </menu>

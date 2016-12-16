@@ -4,6 +4,7 @@ import android.app.Application;
 import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.NotificationCompat;
 import android.view.View;
 
@@ -75,6 +76,29 @@ public class MyApp extends Application {
     public UAirship getAirship() { return airship; }
 
     public void setAirship(UAirship airship) { this.airship = airship; }
+
+
+
+
+    public void store(String token, Integer id){
+        // Store Usefull datas
+        SharedPreferences userDetails = getApplicationContext().getSharedPreferences("userdetails", MODE_PRIVATE);
+        SharedPreferences.Editor edit = userDetails.edit();
+        edit.clear();
+        edit.putInt("id", id);
+        edit.putString("token", token);
+        edit.apply();
+    }
+
+
+    public void unstore() {
+        SharedPreferences userDetails = getApplicationContext().getSharedPreferences("userdetails", MODE_PRIVATE);
+        SharedPreferences.Editor edit = userDetails.edit();
+        edit.clear();
+        edit.putString("id", "");
+        edit.putString("token", "");
+        edit.commit();
+    }
 }
 
 

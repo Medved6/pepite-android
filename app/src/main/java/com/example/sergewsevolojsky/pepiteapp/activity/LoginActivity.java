@@ -1,6 +1,7 @@
 package com.example.sergewsevolojsky.pepiteapp.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -89,8 +90,6 @@ public class LoginActivity extends AppCompatActivity {
         String email_val = email_edit_text.getText().toString();
         String password_val = password_edit_text.getText().toString();
 
-        Log.e("LOGIN","Requete Connection");
-
         if(!checkEmpty(email_val,password_val)){
             login_error.setText("Veuillez remplir tous les champs");
             return;
@@ -99,17 +98,13 @@ public class LoginActivity extends AppCompatActivity {
         UserNetworkManager.loginUsers(email_val, password_val, new UserNetworkManager.UserLoginResultListener() {
             @Override
             public void onLoginUsers(User user) {
-                Toast.makeText(LoginActivity.this, "ok", Toast.LENGTH_SHORT).show();
-
-                MyApp.getInstance().setToken(user.getToken().toString());
                 login_error.setText("");
-
+                MyApp.getInstance().store(user.getToken().toString(), user.getId());
                 connect();
             }
 
             @Override
             public void onFail() {
-                Toast.makeText(LoginActivity.this, "no", Toast.LENGTH_SHORT).show();
                 login_error.setText("Veuillez entrez des information valides");
             }
         });

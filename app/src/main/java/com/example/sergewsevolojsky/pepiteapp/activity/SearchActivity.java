@@ -11,13 +11,14 @@ import com.example.sergewsevolojsky.pepiteapp.network.EventsNetwworkManager;
 
 import java.util.ArrayList;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends bottomBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+        StartBottomBar();
 
         EventsNetwworkManager.getEvent(new EventsNetwworkManager.EventsResultListener()  {
             @Override
@@ -38,4 +39,5 @@ public class SearchActivity extends AppCompatActivity {
 
 
     }
+
 }

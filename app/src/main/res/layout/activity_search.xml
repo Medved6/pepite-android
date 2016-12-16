@@ -16,7 +16,9 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:background="@color/colorMain"
-        android:gravity="center">
+        android:gravity="center"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <EditText
             android:id="@+id/sport_edit_text"
@@ -39,5 +41,9 @@
 
 
     </ListView>
+
+    <include
+        layout="@layout/activity_bottom_bar"
+        />
 
 </RelativeLayout>

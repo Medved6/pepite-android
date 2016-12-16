@@ -18,21 +18,21 @@ public class User implements Parcelable{
     private String email;
     private String bio;
     private String token;
+    private EventResult event_subscriptions;
 
-    public User(String firstname, String lastname, int id, String email, String bio, String token) {
+    public User(String firstname, String lastname, int id, String email, String bio, String token, EventResult event_subscriptions) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.id = id;
         this.email = email;
         this.bio = bio;
         this.token = token;
+        this.event_subscriptions = event_subscriptions;
     }
 
-
-    public User(){
+    public User() {
 
     }
-
 
     protected User(Parcel in) {
         firstname = in.readString();
@@ -43,6 +43,17 @@ public class User implements Parcelable{
         token = in.readString();
     }
 
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 
     public String getFirstname() {
         return firstname;
@@ -92,34 +103,26 @@ public class User implements Parcelable{
         this.token = token;
     }
 
+    public EventResult getEvent_subscriptions() {
+        return event_subscriptions;
+    }
+
+    public void setEvent_subscriptions(EventResult event_subscriptions) {
+        this.event_subscriptions = event_subscriptions;
+    }
+
     @Override
     public int describeContents() {
         return 0;
     }
 
     @Override
-    public void writeToParcel(Parcel parcel, int i) {
-
-        parcel.writeString(firstname);
-        parcel.writeString(lastname);
-        parcel.writeInt(id);
-        parcel.writeString(email);
-        parcel.writeString(bio);
-        parcel.writeString(token);
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(firstname);
+        dest.writeString(lastname);
+        dest.writeInt(id);
+        dest.writeString(email);
+        dest.writeString(bio);
+        dest.writeString(token);
     }
-
-
-
-    public static final Creator<User> CREATOR = new Creator<User>() {
-        @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
-        }
-
-        @Override
-        public User[] newArray(int size) {
-            return new User[size];
-        }
-    };
-
 }
