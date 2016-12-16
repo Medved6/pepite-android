@@ -20,6 +20,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.sergewsevolojsky.pepiteapp.R;
+import com.example.sergewsevolojsky.pepiteapp.fragments.GoToSportFragment;
+import com.example.sergewsevolojsky.pepiteapp.fragments.HomeCommingEventsFragment;
+import com.example.sergewsevolojsky.pepiteapp.fragments.HomeOwnEventsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,6 +59,15 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
     }
 
@@ -131,7 +143,15 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+
+            switch (position) {
+                case 0:
+                    return HomeCommingEventsFragment.newInstance();
+                default:
+                    return HomeOwnEventsFragment.newInstance();
+
+            }
+
         }
 
         @Override
@@ -144,9 +164,9 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "À venir";
+                    return "À Venir";
                 case 1:
-                    return "Mes events";
+                    return "Mes Events";
             }
             return null;
         }
