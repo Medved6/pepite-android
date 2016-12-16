@@ -18,17 +18,19 @@ public class Event implements Parcelable{
     private User author;
     private int sport_id;
     private Sport sport;
-    private Date date;
-    private String addresse;
+
+
+    private String period;
+    private String address;
     private int users_needed;
 
-    public Event(int author_id, User author, int sport_id, Sport sport, Date date, String addresse, int users_needed) {
+    public Event(int author_id, User author, int sport_id, Sport sport, String Period, String address, int users_needed) {
         this.author_id = author_id;
         this.author = author;
         this.sport_id = sport_id;
         this.sport = sport;
-        this.date = date;
-        this.addresse = addresse;
+        this.period = period;
+        this.address = address;
         this.users_needed = users_needed;
     }
 
@@ -41,7 +43,8 @@ public class Event implements Parcelable{
         author = in.readParcelable(User.class.getClassLoader());
         sport_id = in.readInt();
         sport = in.readParcelable(Sport.class.getClassLoader());
-        addresse = in.readString();
+        address = in.readString();
+        period = in.readString();
         users_needed = in.readInt();
     }
 
@@ -89,20 +92,21 @@ public class Event implements Parcelable{
         this.sport = sport;
     }
 
-    public Date getDate() {
-        return date;
+
+    public String getPeriod() {
+        return period;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setPeriod(String period) {
+        this.period = period;
     }
 
-    public String getAddresse() {
-        return addresse;
+    public String getAddress() {
+        return address;
     }
 
     public void setAddresse(String addresse) {
-        this.addresse = addresse;
+        this.address = addresse;
     }
 
     public int getUsers_needed() {
@@ -124,7 +128,8 @@ public class Event implements Parcelable{
         dest.writeParcelable(author, flags);
         dest.writeInt(sport_id);
         dest.writeParcelable(sport, flags);
-        dest.writeString(addresse);
+        dest.writeString(address);
+        dest.writeString(period);
         dest.writeInt(users_needed);
     }
 }

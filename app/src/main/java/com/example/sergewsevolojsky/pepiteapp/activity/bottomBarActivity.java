@@ -5,6 +5,7 @@ import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.sergewsevolojsky.pepiteapp.R;
@@ -20,12 +21,17 @@ public class bottomBarActivity extends AppCompatActivity {
 
         mybottomBar = (BottomBar) findViewById(R.id.bottomBar);
 
+        //mybottomBar.setDefaultTab(R.id.tab_home);
+
         mybottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
+
                 if (tabId == R.id.tab_home) {
-                    // The tab with id R.id.tab_favorites was selected,
-                    // change your content accordingly.
+
+                    //Intent intent = new Intent(getApplication().getApplicationContext(), MainActivity.class);
+                    //startActivity(intent);
+
                 } else if (tabId == R.id.tab_add) {
 
                     Intent intent = new Intent(getApplication().getApplicationContext(), CreateEventActivity.class);

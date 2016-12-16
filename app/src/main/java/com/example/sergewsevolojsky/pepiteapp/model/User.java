@@ -18,9 +18,9 @@ public class User implements Parcelable{
     private String email;
     private String bio;
     private String token;
-    private EventResult event_subscriptions;
+    private SubscrivesEventsResult event_subscriptions;
 
-    public User(String firstname, String lastname, int id, String email, String bio, String token, EventResult event_subscriptions) {
+    public User(String firstname, String lastname, int id, String email, String bio, String token, SubscrivesEventsResult event_subscriptions) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.id = id;
@@ -30,7 +30,7 @@ public class User implements Parcelable{
         this.event_subscriptions = event_subscriptions;
     }
 
-    public User() {
+    public User(){
 
     }
 
@@ -103,11 +103,11 @@ public class User implements Parcelable{
         this.token = token;
     }
 
-    public EventResult getEvent_subscriptions() {
+    public SubscrivesEventsResult getEvent_subscriptions() {
         return event_subscriptions;
     }
 
-    public void setEvent_subscriptions(EventResult event_subscriptions) {
+    public void setEvent_subscriptions(SubscrivesEventsResult event_subscriptions) {
         this.event_subscriptions = event_subscriptions;
     }
 
